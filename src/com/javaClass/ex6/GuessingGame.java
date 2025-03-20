@@ -17,7 +17,6 @@ public class GuessingGame {
 				guessing = Integer.parseInt(text);
 				if (guessing > 5 || guessing < 1) {
 					System.out.println("猜測內容需為數字 1 - 5");
-					continue;
 				} else if (guessing == random) {
 					System.out.println("你猜對了!");
 					break;
