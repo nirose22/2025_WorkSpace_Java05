@@ -1,21 +1,39 @@
 package com.example2;
 
+import java.util.ArrayList;
 
 public class EmployeeTest {
-	public static void main(String[] args) {
-		Employee e1 = new Employee("qqq", "wqeqewqe", 55.5);
-		Employee e2 = new Employee("zzzzzz", "1221321312", 2225.5);
-		Manager m1 = new Manager("zzzzzz", "1221321312", 5555);
-		Direct d1 = new Direct("zzzzzz", "1221321312", 2225.5);
-		Enineer eg1 = new Enineer("zzzzzz", "1221321312", 2225.5);
-		eg1.addSkills("java");
-		eg1.addSkills("c++");
-		e1.setName("UUU");
-		e1.raiseSalary(500);
-		e1.displayInformation();
-		e2.displayInformation();
-		m1.displayInformation();
-		d1.displayInformation();
-		eg1.displayInformation();
-	}
+    public static void main(String[] args) {
+        ArrayList<Employee> employees = new ArrayList<>();
+        employees.add(new Employee("qqq", "1", 55.5));
+        employees.add(new Employee("zzzz", "2", 2225.5));
+        employees.add(new Employee("wwww", "3", 5555));
+        employees.add(new Manager("Manager", "5", 5555));
+        employees.add(new Direct("direct", "6", 2225.5));
+        employees.add(new Enineer("engineer", "7", 2225.5));
+
+        employees.get(0).raiseSalary(500);
+        // 多態父類別引用子類別物件
+        if (employees.get(5) instanceof Enineer eg1) {
+            eg1.addSkills("java");
+            eg1.addSkills("c++");
+            eg1.addSkills("python");
+        }
+
+        System.out.println("＝＝＝＝部門分配＝＝＝＝");
+        if (employees.get(3) instanceof Manager m1) {
+            m1.addEmployee(employees.get(0));
+            m1.addEmployee(employees.get(1));
+            m1.addEmployee(employees.get(2));
+        }
+
+        if (employees.get(4) instanceof Manager d1) {
+            d1.addEmployee(employees.get(3));
+        }
+
+        System.out.println("＝＝＝＝員工資料＝＝＝＝");
+        for (Employee e : employees) {
+            e.displayInformation();
+        }
+    }
 }
