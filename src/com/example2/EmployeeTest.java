@@ -7,11 +7,15 @@ public class EmployeeTest {
 		Employee e2 = new Employee("zzzzzz", "1221321312", 2225.5);
 		Manager m1 = new Manager("zzzzzz", "1221321312", 5555);
 		Direct d1 = new Direct("zzzzzz", "1221321312", 2225.5);
+		Enineer eg1 = new Enineer("zzzzzz", "1221321312", 2225.5);
+		eg1.addSkills("java");
+		eg1.addSkills("c++");
 		e1.setName("UUU");
 		e1.raiseSalary(500);
 		e1.displayInformation();
 		e2.displayInformation();
 		m1.displayInformation();
 		d1.displayInformation();
+		eg1.displayInformation();
 	}
 }

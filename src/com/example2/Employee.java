@@ -14,22 +14,20 @@ public class Employee {
     private String name;
     private String ssnString;
     private double salary;
+    NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
 
     public void displayInformation() {
         // 用 numberformat 方法 格式化金額
-        NumberFormat f = NumberFormat.getCurrencyInstance();
-        String s = f.format(salary);
+        String s = numberFormat.format(salary);
         System.out.println("-----員工資料------");
         System.out.printf("員工編號:%d%n姓名:%s%n身分證字號:%s%n薪水:%s%n", empId, name, ssnString, s);
     }
-
     public void setName(String n) {
         if (Objects.equals(n, "") || n == null) {
             System.out.println("請輸入正確值");
             return;
         }
         name = n;
-
     }
 
     public void raiseSalary(double s) {

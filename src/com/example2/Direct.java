@@ -13,6 +13,6 @@ public class Direct extends Employee {
     @Override
     public void displayInformation() {
         super.displayInformation();
-        System.out.println("Budget: " + budget);
+        System.out.println("Budget: " + numberFormat.format(budget));
     }
 }
