@@ -1,8 +1,12 @@
 package com.example2;
 
+import lombok.Data;
 
 import java.text.NumberFormat;
 import java.util.Objects;
+
+
+@Data
 
 public class Employee {
     static int nextId = 101;
@@ -12,23 +16,12 @@ public class Employee {
     private double salary;
     NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
 
-    public void displayInformation() {
-        // 用 numberformat 方法 格式化金額
+    @Override
+    public String toString() {
         String s = numberFormat.format(salary);
-        System.out.println("-----------");
-        System.out.printf("員工編號:%d%n姓名:%s%n身分證字號:%s%n薪水:%s%n", empId, name, ssnString, s);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String n) {
-        if (Objects.equals(n, "") || n == null) {
-            System.out.println("請輸入正確值");
-            return;
-        }
-        name = n;
+        return "-----------\n" +
+                // 用 numberformat 方法 格式化金額
+                String.format("員工編號:%d%n姓名:%s%n身分證字號:%s%n薪水:%s%n", empId, name, ssnString, s);
     }
 
     public void raiseSalary(double s) {
@@ -45,5 +38,17 @@ public class Employee {
         this.name = name;
         this.ssnString = ssnString;
         this.salary = salary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return empId == employee.empId && Objects.equals(ssnString, employee.ssnString);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(empId, ssnString);
     }
 }

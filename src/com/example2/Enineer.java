@@ -20,13 +20,16 @@ public class Enineer extends Employee {
     }
 
     @Override
-    public void displayInformation() {
-        super.displayInformation();
-        System.out.print("技能: ");
-        for (String skill : skills) {
-            if (skill != null) {
-                System.out.print(skill + " ");
+    public String toString() {
+        StringBuilder sb = new StringBuilder(super.toString());
+        if (skillCount > 0) {
+            sb.append("Skills: ");
+            for (String skill : skills) {
+                if (skill != null) {
+                    sb.append(" ").append(skill);
+                }
             }
         }
+        return sb.toString();
     }
 }

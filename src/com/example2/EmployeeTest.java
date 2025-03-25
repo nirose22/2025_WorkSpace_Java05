@@ -6,7 +6,7 @@ public class EmployeeTest {
     public static void main(String[] args) {
         ArrayList<Employee> employees = new ArrayList<>();
         employees.add(new Employee("qqq", "1", 55.5));
-        employees.add(new Employee("zzzz", "2", 2225.5));
+        employees.add(new Employee("王小明", "2", 2225.5));
         employees.add(new Employee("wwww", "3", 5555));
         employees.add(new Manager("Manager", "5", 5555));
         employees.add(new Direct("direct", "6", 2225.5));
@@ -33,7 +33,7 @@ public class EmployeeTest {
 
         System.out.println("＝＝＝＝員工資料＝＝＝＝");
         for (Employee e : employees) {
-            e.displayInformation();
+            System.out.println(e.toString());
         }
     }
 }

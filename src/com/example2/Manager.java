@@ -30,18 +30,22 @@ public class Manager extends Employee {
         return false;
     }
 
-    @Override
-    public void displayInformation() {
-        super.displayInformation();
-        System.out.println("Department: " + dept);
-        System.out.print("管理的人員有: ");
-        this.printStaffDetails();
+    public String getStaffDetails() {
+        StringBuilder sb = new StringBuilder();
+        if (!employees.isEmpty()) {
+            sb.append(getName()).append("管理的人員有：");
+            for (Employee e : employees) {
+                sb.append(String.format(" %s(%d)", e.getName(), e.getEmpId()));
+            }
+        }
+        sb.append("\n");
+        return sb.toString();
     }
 
-    public void printStaffDetails() {
-        for (Employee e : employees) {
-            System.out.print(e.getName() + " ");
-        }
-        System.out.println();
+    @Override
+    public String toString() {
+        return super.toString() +
+        "Department: " + dept + "\n" +
+        this.getStaffDetails();
     }
 }
