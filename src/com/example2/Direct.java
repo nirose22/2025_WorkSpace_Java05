@@ -11,6 +11,11 @@ public class Direct extends Manager {
     }
 
     @Override
+    public double getPay() {
+        return this.getSalary() + employees.size()*10000;
+    }
+
+    @Override
     public String toString() {
         return super.toString() +
                 "Budget: " + numberFormat.format(budget);

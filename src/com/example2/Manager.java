@@ -6,8 +6,14 @@ import java.util.ArrayList;
 
 @Getter
 public class Manager extends Employee {
+
     private String dept = "IT";
-    private ArrayList<Employee> employees = new ArrayList<>();
+    protected ArrayList<Employee> employees = new ArrayList<>();
+
+    @Override
+    public double getPay() {
+        return this.getSalary() + employees.size()*2000;
+    }
 
     public Manager(String name, String ssString, double salary) {
         super(name, ssString, salary);

@@ -1,14 +1,11 @@
 package com.example2;
-
 import lombok.Data;
 
 import java.text.NumberFormat;
 import java.util.Objects;
 
-
 @Data
-
-public class Employee {
+public abstract class Employee {
     static int nextId = 101;
     private int empId;
     private String name;
@@ -16,13 +13,7 @@ public class Employee {
     private double salary;
     NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
 
-    @Override
-    public String toString() {
-        String s = numberFormat.format(salary);
-        return "-----------\n" +
-                // 用 numberformat 方法 格式化金額
-                String.format("員工編號:%d%n姓名:%s%n身分證字號:%s%n薪水:%s%n", empId, name, ssnString, s);
-    }
+    public abstract double getPay();
 
     public void raiseSalary(double s) {
         if (s < 0) {
@@ -38,6 +29,14 @@ public class Employee {
         this.name = name;
         this.ssnString = ssnString;
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        String s = numberFormat.format(salary);
+        return "-----------\n" +
+                // 用 numberformat 方法 格式化金額
+                String.format("員工編號:%d%n姓名:%s%n身分證字號:%s%n薪水:%s%n", empId, name, ssnString, s);
     }
 
     @Override

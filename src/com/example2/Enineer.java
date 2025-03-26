@@ -4,6 +4,11 @@ public class Enineer extends Employee {
     private String[] skills;
     int skillCount;
 
+    @Override
+    public double getPay() {
+        return this.getSalary() + skillCount*3000;
+    }
+
     public Enineer(String name, String ssString, double salary) {
         super(name, ssString, salary);
         skills = new String[5];
