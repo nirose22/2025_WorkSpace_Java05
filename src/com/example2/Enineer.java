@@ -1,12 +1,12 @@
 package com.example2;
 
-public class Enineer extends Employee {
+public class Enineer extends Employee implements RegularStaff {
     private String[] skills;
     int skillCount;
 
     @Override
     public double getPay() {
-        return this.getSalary() + skillCount*3000;
+        return this.getSalary() + skillCount * 3000;
     }
 
     public Enineer(String name, String ssString, double salary) {
@@ -36,5 +36,10 @@ public class Enineer extends Employee {
             }
         }
         return sb.toString();
+    }
+
+    @Override
+    public double getBonus() {
+        return getSalary() * calPerMultiplier();
     }
 }

@@ -32,6 +32,12 @@ public class EmployeeTest {
         System.out.println("＝＝＝＝員工資料＝＝＝＝");
         for (Employee e : employees) {
             System.out.println(e.toString() + "\n本月薪資總共是：" + e.getPay());
+            if (e instanceof RegularStaff) {
+                System.out.print("摸彩結果為: ");
+                System.out.println(RegularStaff.getLuckyGift());
+                System.out.print("獎金是: ");
+                System.out.println(((RegularStaff) e).getBonus());
+            }
         }
     }
 }

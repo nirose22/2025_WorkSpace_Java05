@@ -6,16 +6,23 @@ public class PlayWithAnimals {
         animals[0] = new Spider(8);
         animals[1] = new Cat(4);
         animals[2] = new Fish(0);
+        Pet[] p = new Pet[2];
+        p[0] = new Cat(4);
+        p[1] = new Fish(0);
 
-        for (Animal animal : animals) {
-            animal.walk();
-            animal.eat();
-            if (animal instanceof Pet) {
-                Pet pet = (Pet) animal;
-                pet.play();
-            } else {
-                System.out.println(animal.getClass() + " don't know how to play");
-            }
+        //for (Animal animal : animals) {
+        //    animal.walk();
+        //    animal.eat();
+        //    if (animal instanceof Pet) {
+        //        Pet pet = (Pet) animal;
+        //        pet.play();
+        //    } else {
+        //        System.out.println(animal.getClass() + " don't know how to play");
+        //    }
+        //}
+
+        for (Pet pet : p) {
+            pet.play();
         }
     }
 }

@@ -5,14 +5,14 @@ import lombok.Getter;
 import java.util.ArrayList;
 
 @Getter
-public class Manager extends Employee {
-
+public class Manager extends Employee implements RegularStaff {
     private String dept = "IT";
     protected ArrayList<Employee> employees = new ArrayList<>();
+    double baseBonus = 500000;
 
     @Override
     public double getPay() {
-        return this.getSalary() + employees.size()*2000;
+        return this.getSalary() + employees.size() * 2000;
     }
 
     public Manager(String name, String ssString, double salary) {
@@ -51,7 +51,13 @@ public class Manager extends Employee {
     @Override
     public String toString() {
         return super.toString() +
-        "Department: " + dept + "\n" +
-        this.getStaffDetails();
+                "Department: " + dept + "\n" +
+                this.getStaffDetails();
+    }
+
+    @Override
+    public double getBonus() {
+        System.out.println(calPerMultiplier());
+        return baseBonus * calPerMultiplier();
     }
 }

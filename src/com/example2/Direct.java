@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public class Direct extends Manager {
     private double budget = 6666.6;
+    double baseBonus = 100000;
 
     public Direct(String name, String ssString, double salary) {
         super(name, ssString, salary);
@@ -19,5 +20,9 @@ public class Direct extends Manager {
     public String toString() {
         return super.toString() +
                 "Budget: " + numberFormat.format(budget);
+    }
+    @Override
+    public double getBonus() {
+        return super.getBonus() + budget*0.1;
     }
 }
