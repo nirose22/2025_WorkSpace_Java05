@@ -9,8 +9,8 @@ public class Enineer extends Employee implements RegularStaff {
         return this.getSalary() + skillCount * 3000;
     }
 
-    public Enineer(String name, String ssString, double salary) {
-        super(name, ssString, salary);
+    public Enineer(String name, String ssString, double salary, Branch branch) {
+        super(name, ssString, salary, branch);
         skills = new String[5];
         skillCount = 0;
     }
@@ -28,7 +28,7 @@ public class Enineer extends Employee implements RegularStaff {
     public String toString() {
         StringBuilder sb = new StringBuilder(super.toString());
         if (skillCount > 0) {
-            sb.append("Skills: ");
+            sb.append("Skills:");
             for (String skill : skills) {
                 if (skill != null) {
                     sb.append(" ").append(skill);

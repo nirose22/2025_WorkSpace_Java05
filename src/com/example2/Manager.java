@@ -15,8 +15,8 @@ public class Manager extends Employee implements RegularStaff {
         return this.getSalary() + employees.size() * 2000;
     }
 
-    public Manager(String name, String ssString, double salary) {
-        super(name, ssString, salary);
+    public Manager(String name, String ssString, double salary, Branch branch) {
+        super(name, ssString, salary, branch);
     }
 
     public boolean addEmployee(Employee employee) {

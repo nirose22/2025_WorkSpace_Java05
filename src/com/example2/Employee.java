@@ -11,7 +11,8 @@ public abstract class Employee {
     private String name;
     private String ssnString;
     private double salary;
-    NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
+    private Branch branch;
+    NumberFormat numberFormat = NumberFormat.getInstance();
 
     public abstract double getPay();
 
@@ -24,16 +25,17 @@ public abstract class Employee {
         salary += s;
     }
 
-    public Employee(String name, String ssnString, double salary) {
+    public Employee(String name, String ssnString, double salary, Branch branch) {
         this.empId = nextId++;
         this.name = name;
         this.ssnString = ssnString;
         this.salary = salary;
+        this.branch = branch;
     }
 
     @Override
     public String toString() {
-        String s = numberFormat.format(salary);
+        String s = branch.getCurrency() + numberFormat.format(salary);
         return "-----------\n" +
                 // 用 numberformat 方法 格式化金額
                 String.format("員工編號:%d%n姓名:%s%n身分證字號:%s%n薪水:%s%n", empId, name, ssnString, s);

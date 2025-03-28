@@ -8,8 +8,8 @@ import lombok.Setter;
 public class Admin extends Employee {
     private int hours;
 
-    public Admin(String name, String ssString, double salary, int hours) {
-        super(name, ssString, salary);
+    public Admin(String name, String ssString, double salary, int hours, Branch branch) {
+        super(name, ssString, salary, branch);
         this.hours = hours;
     }
 

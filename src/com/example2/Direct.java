@@ -7,8 +7,8 @@ public class Direct extends Manager {
     private double budget = 6666.6;
     double baseBonus = 100000;
 
-    public Direct(String name, String ssString, double salary) {
-        super(name, ssString, salary);
+    public Direct(String name, String ssString, double salary, Branch branch) {
+        super(name, ssString, salary, branch);
     }
 
     @Override
