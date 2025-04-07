@@ -1,9 +1,9 @@
 package com.example_EmployeeDAO.model;
 
-public interface EmployeeDAO {
-    void add(Employee emp);
-    void delete(int id);
-    void update(Employee emp);
+public interface EmployeeDAO extends AutoCloseable {
+    void add(Employee emp) throws DAOException;
+    void delete(int id) throws DAOException;
+    void update(Employee emp) throws DAOException;
     Employee[] getAllEmployees();
-    Employee findById(int id);
+    Employee findById(int id) throws DAOException;
 }

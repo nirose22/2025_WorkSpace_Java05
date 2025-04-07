@@ -1,6 +1,8 @@
 package com.example_EmployeeDAO.test;
 
 import java.io.*;
+
+import com.example_EmployeeDAO.model.DAOException;
 import com.example_EmployeeDAO.model.Employee;
 import com.example_EmployeeDAO.model.EmployeeDAO;
 import com.example_EmployeeDAO.model.EmployeeDAOFactory;
@@ -10,23 +12,32 @@ import java.text.*;
 
 public class EmployeeTestInteractive {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         //TODO create factory
         boolean timeToQuit = false;
         EmployeeDAOFactory factory = new EmployeeDAOFactory();
+        try (
+                EmployeeDAO dao = factory.createEmployeeDAO();
+                BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        ) {
+            do {
+                try {
+                    timeToQuit = executeMenu(in, dao);
+                } catch (DAOException e) {
+                    System.out.println("DAO錯誤訊息" + e.getMessage());
+                }
+            } while (!timeToQuit);
+            //TODO create daoㄎ
 
-        //TODO create dao
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        EmployeeDAO dao = factory.createEmployeeDAO();
-        do {
-            timeToQuit = executeMenu(in, dao);
-        } while (!timeToQuit);
+        } catch (Exception e) {
+            System.out.println("錯誤訊息" + e.getMessage());
+        }
     }
 
     public EmployeeTestInteractive() {
     }
 
-    public static boolean executeMenu(BufferedReader in, EmployeeDAO dao) throws IOException {
+    public static boolean executeMenu(BufferedReader in, EmployeeDAO dao) throws DAOException, IOException {
         Employee emp;
         String action;
         int id;

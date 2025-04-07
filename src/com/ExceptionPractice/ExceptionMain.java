@@ -18,5 +18,6 @@ public class ExceptionMain {
             throw new RuntimeException(e);
         }
 
+
     }
 }
