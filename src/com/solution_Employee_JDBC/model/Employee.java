@@ -1,16 +1,16 @@
-package com.example_EmployeeDAO.model;
+package com.solution_Employee_JDBC.model;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Employee {
+
     private int id;
     private String firstName;
     private String lastName;
     private Date birthDate;
     private float salary;
-    // not thread-safe
 
     public Employee() {
     }
@@ -50,5 +50,6 @@ public class Employee {
                 + "Birth Date:    " + new SimpleDateFormat("MMM d, yyyy").format(getBirthDate()) + "\n"
                 + "Salary:        " + NumberFormat.getCurrencyInstance().format((double) getSalary());
     }
+
 }
 
