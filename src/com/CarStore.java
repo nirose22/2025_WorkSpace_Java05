@@ -21,6 +21,7 @@ public class CarStore {
                 buyCar(car);
             }
             showCar();
+            System.out.println(11);
         }
     }
 
