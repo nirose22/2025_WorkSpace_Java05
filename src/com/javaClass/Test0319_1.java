@@ -18,6 +18,9 @@ class Test0319_1 {
 			System.out.println("請輸入Q exit");
 			text = sc.next();
 		}
+		System.out.println(111);
+		
+		
 		sc.close();
 	}
 	
