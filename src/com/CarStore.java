@@ -13,6 +13,7 @@ public class CarStore {
                 System.out.println("請輸入要新增的汽車品牌");
                 String car = sc.next();
                 addCar(car);
+                System.out.println(2); 
             }
             showCar();
             while (carList.size() > 4) {
